@@ -1,0 +1,93 @@
+*1
+¡Hola!, mi nombre es Valeria Fariña 
+
+Soy estudiante del Bootcamp de Desarrollo de aplicaciones FullStack con Python de Desafío Latam y Altaexperticia. En este video, mostraré el desarrollo del desafío final del módulo número 5 de Fundamentos de Bases de datos Relacionales.
+
+El desafío consta de dos partes, que incluye un modelo y sus preguntas relacionadas. Para mostrar la relación de las dos tablas presentadas se debe crear una nueva tabla, denominada películas guión bajo tags. En el modelo relacional se ve los atributos de cada clase, se ve el tipo de dato, las claves foráneas y primarias. En la tabla intermedia se relacionan ambas claves foráneas.
+
+Para la resolución del resto de los requerimientos, primero creo una base de datos llamada Cine. Dentro de las cuales crearé las dos tablas del modelo relacional y configuré la creación de la tabla intermedia películas guión bajo tags. La que se ve de esta forma en la terminal.
+
+**2
+Para la creación de la tabla intermedia, relacionamos las claves primarias de tipo número entero de ambas tablas, generando un identificador numérico de tipo serial. 
+
+Inserto cinco registros en la tabla películas, con dos campos; nombre de la película y año.  
+
+Inserto cinco etiquetas en la tabla tags, la que se ve de esta forma.
+
+De acuerdo a los requerimientos la primera película debe tener 3 tags asociados y la segunda debe tener 2. 
+
+
+Inserto los datos en la tabla intermedia películas guión bajo tags, que corresponde a las etiquetas de cada película.
+
+Para contar la cantidad de tags de cada película se debe usar la siguiente consulta. Se usa alias tanto para el campo nombre, como para el conteo de tags.
+
+***3
+Se usa coalesce en el conteo para definir un valor cero en caso que la película no tenga tags asociados.
+
+También se usa LEF JOIN agrupado por nombre de la película. Lo que se visualiza en la siguiente tabla, en la que se muestra cada alias en una columna de la tabla y en orden descendente de cantidad de tags.
+
+
+Para la segunda parte del desafío, nos muestran otro modelo relacional.
+
+Hay tres tablas, preguntas y usuarios, relacionadas por la tabla intermedia denominada respuestas.
+
+En el modelo las claves primarias de las tablas aparecen como de tipo numérico, pero decidí cambiarlas a tipo serial.
+
+Creo la base de datos encuestas y dentro de ella creo las tres tablas del modelo.
+
+En la tabla respuestas se refiere la relación de los identificadores, como clave foránea y además se configura la creación de una nueva clave primaria, de tipo serial.
+
+Finalmente, se visualiza de esa forma la tabla intermedia. 
+
+****4
+
+Se agregan 5 registros a la tabla preguntas, con sus correspondientes respuestas con el comando insert. Inserto los datos de los usuarios de esta encuesta, correspondientes a 5 personas de diferentes edades.
+
+La primera pregunta debe ser contestada correctamente por dos usuarios, la pregunta 2 debe estar respondida correctamente por 1 usuario. Y los otros dos registros deben ser respuestas incorrectas.
+
+La tabla preguntas se visualiza de la siguiente manera en la terminal, con los registros ingresados.
+
+Para cumplir con los requerimientos del desafío, ingreso las respuestas de cada usuario y se configuran los 3 campos de la tabla respuestas. 
+
+Aquí vemos la tabla respuestas con todos sus campos.
+
+*****5
+
+
+Para contar las respuestas correctas independiente de la pregunta se establece una consulta en la que se cuentan las respuestas correctas de cada pregunta y se cruzan datos por medio de un LEF JOIN entre las tablas preguntas y respuestas, entre las que deben tener coincidencia completa. 
+
+Para obtener el número de personas que tuvieron respuestas correctas se usa una consulta en la que selecciona los datos desde las tablas preguntas y respuestas, para relacionarlas por medio de LEF JOIN LATERAL. 
+
+En el caso de no encontrarse coicidencias, se agrega un cero por defecto. La consulta se realiza en todas las filas de la tabla preguntas, incluso si no hay coincidencias.
+
+
+******6
+
+En el siguiente requerimiento, se debe implementar el borrado en cascada, para que junto con el usuarios se elimine también sus respuestas. Se elimina la restricción en el caso que exista y se define otra con el mismo nombre que relaciona preguntas y respuestas de los usuarios. Probamos con la eliminación del primer usuario de la encuesta y verificamos que la tabla comienza desde el segundo usuario en adelante.
+
+
+Debemos crear una restricción con verificación de la edad mínima de los usuarios, definida para mayores de edad. Al correr esta consulta aparece un error que indica que existe algún usuario que no cumple la restricción desde antes. Revisamos cuál es y corresponde a Rosa con una edad de 16 años.
+
+*******7
+No lo menciona el desafío, pero se puede agregar una restricción para que no se ingresen datos fuera del rango de edad.
+
+El último requerimiento indica que se agregue una columna correo y su dato restringido a unico.
+
+De esta forma se termina el desarrollo del desafío final del módulo de Bases de Datos Relacionales. ¡¡Hasta pronto y muchas gracias!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
